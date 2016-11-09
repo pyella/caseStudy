@@ -1,0 +1,208 @@
+/* styles in src/style directory are applied to the whole page */
+
+.bold-text {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.main-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    height: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-backface-visibility: inherit;
+    backface-visibility: inherit;
+    font-size: 12px;
+    height: 100%;
+}
+
+.product-display {
+    padding: 0 15px;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 60%;
+}
+
+.product-heading {
+    padding-bottom: 15px;
+    text-align: center;
+    font-size: 23px;
+    font-weight: normal;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+}
+
+.product-image {
+    height: 40%;
+}
+
+.product-carousel {
+    /*height: 20%;*/
+}
+
+.product-review-overall {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    padding: 15px 0px;
+}
+
+.product-review {
+    /* height: 33%;*/
+    padding: 15px;
+}
+
+.product-review-header {
+    padding: 15px 0px;
+    border-bottom: 1px solid #d6d6d6;
+}
+.glyphicon-star:before {
+    color: #ff0000;
+}
+
+.product-review-rating {
+    padding-top: 15px;
+    background: #e6e6e6;
+}
+.product-detail {
+    width: 38%;
+    height: 100%;
+    padding: 0 15px;
+}
+.product-price-formatted {
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 100%;
+    color: #333;
+}
+
+.product-promotions {
+    border-top: 1px solid #d6d6d6;
+    padding: 15px 0;
+    border-bottom: 1px solid #d6d6d6;
+    margin: 15px 0;
+}
+
+.product-promotion::before {
+    content: '';
+    display: inline-block;
+    padding-right: 5px;
+    top: 2px;
+    left: 0;
+    width: 17px;
+    height: 17px;
+    background-size: contain;
+    background: url("../public/img/tag.png") no-repeat
+}
+
+.product-promotion {
+    color: #c00;
+}
+
+#productQuantityAdd .dropdown-menu {
+    max-height: 300px;
+    overflow-y: auto;
+    min-width: 25px;
+}
+
+.product-selection {
+    padding: 15px 0px;
+}
+
+.product-returns {
+    padding: 10px 0px;
+}
+
+.product-return {
+    font-size: 18px;
+}
+
+.product-return-description {
+    border-left: 1px solid #d6d6d6;
+    padding-left: 5px;
+    font-size: 10px;
+}
+
+.product-user-actions {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    padding-bottom: 10px;
+}
+
+.product-highlights {
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 100%;
+    color: #333;
+    padding-bottom: 15px;
+}

@@ -1,10 +1,4 @@
 /* styles in src/style directory are applied to the whole page */
-
-.bold-text {
-    font-weight: bold;
-    font-size: 12px;
-}
-
 .main-container {
     display: -webkit-box;
     display: -webkit-flex;
@@ -76,7 +70,7 @@
 }
 
 .product-carousel {
-    /*height: 20%;*/
+    padding-bottom: 15px;
 }
 
 .product-review-overall {
@@ -98,18 +92,21 @@
     -webkit-align-items: flex-start;
     -ms-flex-align: start;
     align-items: flex-start;
-    padding: 15px 0px;
 }
 
 .product-review {
-    /* height: 33%;*/
     padding: 15px;
 }
 
 .product-review-header {
-    padding: 15px 0px;
+    padding-bottom: 15px;
     border-bottom: 1px solid #d6d6d6;
 }
+
+.product-review-overall .glyphicon-star:before,.product-review-overall .glyphicon-star-empty:before {
+    font-size: 18px;
+}
+
 .glyphicon-star:before {
     color: #ff0000;
 }

@@ -10,78 +10,73 @@ const MODULE_CONTROLLERS = "app.controllers";
 class AppCtrl {
     constructor($scope) {
         'ngInject';
-        this.myInterval = 5000;
-        this.noWrapSlides = false;
-        this.active = 0;
         this.title = itemData.CatalogEntryView[0].title;
 
-        this.productStatus = itemData.CatalogEntryView[0].productStatus;
-        this.productImages = itemData.CatalogEntryView[0].Images[0].AlternateImages;
-
-        this.productImages.forEach(function(oInvtImg, iIndx) {
+        let productImages = itemData.CatalogEntryView[0].Images[0].AlternateImages;
+        productImages.forEach(function(oInvtImg, iIndx) {
             oInvtImg.id = iIndx;
         });
-        this.offerPrice = itemData.CatalogEntryView[0].Offers[0].OfferPrice[0];
 
+        this.productCarouselData = {
+            myInterval: 5000,
+            noWrapSlides: false,
+            active: 0,
+            productImages: productImages
+        };
 
-        var data = [];
+        let totalReviews = itemData.CatalogEntryView[0].CustomerReview[0].totalReviews;
+        this.productReviewOverallData = {
+            productReviewOverall: i18n.overAllText,
+            productMaxRating: 5,
+            productConsolidatedOverallRating: itemData.CatalogEntryView[0].CustomerReview[0].consolidatedOverallRating,
+            productViewAllRatingsText: eval("`"+ i18n.viewAllRatingsText +"`")
+        };
+
+        this.productReviewData = {
+            productMaxRating: 5,
+            proHeading: i18n.proHeading,
+            conHeading: i18n.conHeading,
+            proText: i18n.proText,
+            conText: i18n.conText,
+            productProRating: itemData.CatalogEntryView[0].CustomerReview[0].Pro[0].overallRating,
+            productProTitle: itemData.CatalogEntryView[0].CustomerReview[0].Pro[0].title,
+            productProText: itemData.CatalogEntryView[0].CustomerReview[0].Pro[0].review,
+            productProDate: moment(itemData.CatalogEntryView[0].CustomerReview[0].Pro[0].datePosted).format(i18n.shortDateFormat),
+            productProPostedBy: itemData.CatalogEntryView[0].CustomerReview[0].Pro[0].screenName,
+            productConRating: itemData.CatalogEntryView[0].CustomerReview[0].Con[0].overallRating,
+            productConTitle: itemData.CatalogEntryView[0].CustomerReview[0].Con[0].title,
+            productConText: itemData.CatalogEntryView[0].CustomerReview[0].Con[0].review,
+            productConDate: moment(itemData.CatalogEntryView[0].CustomerReview[0].Con[0].datePosted).format(i18n.shortDateFormat),
+            productConPostedBy: itemData.CatalogEntryView[0].CustomerReview[0].Con[0].screenName
+        };
+
+        let data = [];
+        let purchasingChannelCode = Number.parseInt(itemData.CatalogEntryView[0].purchasingChannelCode);
 
         itemData.CatalogEntryView[0].Promotions.forEach(function(promotion) {
             data.push({shortDescription: promotion.Description[0].shortDescription});
         });
 
-        this.productPromotions = data;
-
-        this.quantity = i18n.quantityText;
-        this.productQuanties = [...Array(100).keys()].map(index => ++index);
-        this.quantitySelected = 0;
-
-        this.pickUpInStore = i18n.pickUpText;
-        this.addToCart = i18n.addToCartText;
-        let purchasingChannelCode = Number.parseInt(itemData.CatalogEntryView[0].purchasingChannelCode);
-        this.showPickUpInStore = (purchasingChannelCode === 0 || purchasingChannelCode === 2);
-        this.showAddToCart = (purchasingChannelCode === 0 || purchasingChannelCode === 1);
-
-        this.returns = i18n.returnsText;
-        this.returnsDescription = i18n.returnsDescription;
-
-        this.addToRegistry = i18n.addToRegistry;
-        this.addToList = i18n.addToList;
-        this.share = i18n.share;
-
-        this.productHighlighs = i18n.productHighlightsText;
-        this.productDescriptions = itemData.CatalogEntryView[0].ItemDescription[0].features;
-
-        this.productReviewOverall = i18n.overAllText;
-        this.productMaxRating = 5;
-        this.productConsolidatedOverallRating = itemData.CatalogEntryView[0].CustomerReview[0].consolidatedOverallRating;
-
-        let totalReviews = itemData.CatalogEntryView[0].CustomerReview[0].totalReviews;
-
-        this.productViewAllRatingsText = eval("`"+ i18n.viewAllRatingsText +"`");
-
-        this.proHeading = i18n.proHeading;
-        this.conHeading = i18n.conHeading;
-        this.proText = i18n.proText;
-        this.conText = i18n.conText;
-
-        this.productProRating = itemData.CatalogEntryView[0].CustomerReview[0].Pro[0].overallRating;
-        this.productProTitle = itemData.CatalogEntryView[0].CustomerReview[0].Pro[0].title;
-        this.productProText = itemData.CatalogEntryView[0].CustomerReview[0].Pro[0].review;
-        this.productProDate = moment(itemData.CatalogEntryView[0].CustomerReview[0].Pro[0].datePosted).format(i18n.shortDateFormat);
-        this.productProPostedBy = itemData.CatalogEntryView[0].CustomerReview[0].Pro[0].screenName;
-        this.productConRating = itemData.CatalogEntryView[0].CustomerReview[0].Con[0].overallRating;
-        this.productConTitle = itemData.CatalogEntryView[0].CustomerReview[0].Con[0].title;
-        this.productConText = itemData.CatalogEntryView[0].CustomerReview[0].Con[0].review;
-
-        this.productConDate = moment(itemData.CatalogEntryView[0].CustomerReview[0].Con[0].datePosted).format(i18n.shortDateFormat);
-        this.productConPostedBy = itemData.CatalogEntryView[0].CustomerReview[0].Con[0].screenName;
+        this.productDetailsData = {
+            offerPrice: itemData.CatalogEntryView[0].Offers[0].OfferPrice[0],
+            productPromotions: data,
+            quantity: i18n.quantityText,
+            productQuanties: [...Array(100).keys()].map(index => ++index),
+            quantitySelected: 0,
+            pickUpInStore: i18n.pickUpText,
+            addToCart: i18n.addToCartText,
+            showPickUpInStore: (purchasingChannelCode === 0 || purchasingChannelCode === 2),
+            showAddToCart: (purchasingChannelCode === 0 || purchasingChannelCode === 1),
+            returns: i18n.returnsText,
+            returnsDescription: i18n.returnsDescription,
+            addToRegistry: i18n.addToRegistry,
+            addToList: i18n.addToList,
+            share: i18n.share,
+            productHighlighs: i18n.productHighlightsText,
+            productDescriptions: itemData.CatalogEntryView[0].ItemDescription[0].features
+        }
     }
-
-    setQuantity(data) {
-        this.quantitySelected = data;
-    }
-}
+};
 
 angular.module(MODULE_CONTROLLERS, [])
     .controller('AppCtrl', AppCtrl);

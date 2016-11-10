@@ -1,0 +1,30 @@
+<div class ="product-review">
+    <div class="product-review-header row">
+        <div class="col-md-6">
+            <h3 ng-bind="::productReviewData.proHeading"> </h3>
+            <div ng-bind="::productReviewData.proText"></div>
+        </div>
+        <div class="col-md-6">
+            <h3 ng-bind="::productReviewData.conHeading"></h3>
+            <div ng-bind="::productReviewData.conText"></div>
+        </div>
+    </div>
+    <div class="product-review-rating row">
+        <div class="col-md-6">
+            <div uib-rating ng-model="productReviewData.productProRating" max="::productReviewData.productMaxRating" read-only="true"></div>
+            <div ng-bind="::productReviewData.productProTitle" class="lead"></div>
+            <div ng-bind="::productReviewData.productProText"></div>
+            <div> <span ng-bind="productReviewData.productProPostedBy" class="text-primary"></span>
+                <span ng-bind="productReviewData.productProDate"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div uib-rating ng-model="productReviewData.productConRating" max="productReviewData.productMaxRating" read-only="true"></div>
+            <div ng-bind="::productReviewData.productConTitle" class="lead"></div>
+            <div ng-bind="::productReviewData.productConText"></div>
+            <div> <span ng-bind="productReviewData.productConPostedBy" class="text-primary"></span>
+                <span ng-bind="productReviewData.productConDate"></span>
+            </div>
+        </div>
+    </div>
+</div>

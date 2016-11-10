@@ -1,105 +1,12 @@
-
-
 <div class="main-container">
     <div class="product-display">
         <div class="product-heading" ng-bind="::app.title">
         </div>
-
-       <!-- <div class="product-image">
-        </div>
-
-        <div class="product-image-enlarger">
-
-        </div>-->
-
-        <div class="product-carousel">
-            <div uib-carousel active="app.active" interval="app.myInterval" no-wrap="app.noWrapSlides">
-                <div uib-slide ng-repeat="slide in app.productImages track by slide.id" index="slide.id">
-                    <img ng-src="{{slide.image}}" style="margin:auto;">
-                </div>
-            </div>
-        </div>
-        <div class="product-review-overall">
-            <div>
-                <span uib-rating ng-model="app.productConsolidatedOverallRating" max="app.productMaxRating" read-only="true" aria-labelledby="default-rating"></span>
-                <span ng-bind="::app.productReviewOverall" class="bold-text"></span>
-            </div>
-            <span class="bold-text" ng-bind="app.productViewAllRatingsText"></span>
-        </div>
-        <div class ="product-review">
-            <div class="product-review-header row">
-                <div class="col-md-6">
-                    <h3 ng-bind="::app.proHeading"> </h3>
-                    <div ng-bind="::app.proText"></div>
-                </div>
-                <div class="col-md-6">
-                    <h3 ng-bind="::app.conHeading"></h3>
-                    <div ng-bind="::app.conText"></div>
-                </div>
-            </div>
-
-            <div class="product-review-rating row">
-                <div class="col-md-6">
-                    <div uib-rating ng-model="app.productProRating" max="app.productMaxRating" read-only="true" aria-labelledby="default-rating"></div>
-                    <div ng-bind="::app.productProTitle" class="lead"></div>
-                    <div ng-bind="::app.productProText"></div>
-                    <div> <span ng-bind="app.productProPostedBy" class="text-success"></span>
-                        <span ng-bind="app.productProDate"></span>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div uib-rating ng-model="app.productConRating" max="app.productMaxRating" read-only="true" aria-labelledby="default-rating"></div>
-                    <div ng-bind="::app.productConTitle" class="lead"></div>
-                    <div ng-bind="::app.productConText"></div>
-                    <div> <span ng-bind="app.productConPostedBy" class="text-success"></span>
-                        <span ng-bind="app.productConDate"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <product-carousel product-carousel-data="app.productCarouselData"></product-carousel>
+        <product-overall-review product-overall-review-data="app.productReviewOverallData"></product-overall-review>
+        <product-review product-review-data = "app.productReviewData"></product-review>
     </div>
     <div class="product-detail">
-        <div id="productPrice">
-            <span class="product-price-formatted" ng-bind="app.offerPrice.formattedPriceValue"></span>
-            <span class="product-price-qualifier" ng-bind="::app.offerPrice.priceQualifier"></span>
-        </div>
-        <div class="product-promotions">
-            <div ng-repeat="productPromotion in app.productPromotions track by $index">
-                <div class="product-promotion" ng-bind="productPromotion.shortDescription"></div>
-            </div>
-        </div>
-
-        <div id="productQuantityAdd" class="btn-group" uib-dropdown>
-            <button type="single-button" class="btn btn-danger" uib-dropdown-toggle ng-disabled="disabled">
-                <span ng-bind="app.quantity"></span> : <span ng-bind="app.quantitySelected"></span> <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-                <li ng-repeat="productQuantity in app.productQuanties">
-                    <a ng-click="app.setQuantity(productQuantity)">{{productQuantity}}</a>
-                </li>
-            </ul>
-        </div>
-        <div class="product-selection">
-            <button type="button" class="btn btn-danger" ng-if="app.showPickUpInStore" ng-bind="app.pickUpInStore"></button>
-            <button type="button" class="btn btn-danger" ng-if="app.showAddToCart" ng-bind="app.addToCart"></button>
-        </div>
-
-        <div class="product-returns">
-            <span ng-bind="app.returns" class="product-return"></span>
-            <span ng-bind="app.returnsDescription" class="product-return-description"></span>
-        </div>
-
-        <div class="product-user-actions">
-            <button type="button" class="btn btn-default btn-sm" ng-bind="app.addToRegistry"></button>
-            <button type="button" class="btn btn-default btn-sm" ng-bind="app.addToRegistry"></button>
-            <button type="button" class="btn btn-default btn-sm" ng-bind="app.addToRegistry"></button>
-        </div>
-
-        <div id="productDescription">
-            <div class="product-highlights" ng-bind="app.productHighlighs"></div>
-            <ul ng-repeat="productDescription in app.productDescriptions track by $index">
-                <li ng-bind-html="productDescription"></li>
-            </ul>
-        </div>
+        <product-detail product-detail-data="app.productDetailsData"></product-detail>
     </div>
 </div>

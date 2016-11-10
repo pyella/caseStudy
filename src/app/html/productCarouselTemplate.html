@@ -1,0 +1,7 @@
+<div class="product-carousel">
+    <div uib-carousel active="productCarouselData.active" interval="productCarouselData.myInterval" no-wrap="productCarouselData.noWrapSlides">
+        <div uib-slide ng-repeat="slide in productCarouselData.productImages track by slide.id" index="slide.id">
+            <img ng-src="{{slide.image}}" style="margin:auto;">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div id="productPrice">
+    <span class="product-price-formatted" ng-bind="productDetailData.offerPrice.formattedPriceValue"></span>
+    <span class="product-price-qualifier" ng-bind="::productDetailData.offerPrice.priceQualifier"></span>
+</div>
+<div class="product-promotions">
+    <div ng-repeat="productPromotion in productDetailData.productPromotions track by $index">
+        <div class="product-promotion" ng-bind="productPromotion.shortDescription"></div>
+    </div>
+</div>
+<div id="productQuantityAdd" class="btn-group" uib-dropdown>
+    <button type="single-button" class="btn btn-danger" uib-dropdown-toggle ng-disabled="disabled">
+        <span ng-bind="productDetailData.quantity"></span> : <span ng-bind="productDetailData.quantitySelected"></span> <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+        <li ng-repeat="productQuantity in productDetailData.productQuanties">
+            <!--<a ng-click="onSelect()($event, productQuantity)">{{productQuantity}}</a>-->
+            <a ng-click="setQuantity($event, productQuantity)">{{productQuantity}}</a>
+        </li>
+    </ul>
+</div>
+<div class="product-selection">
+    <button type="button" class="btn btn-danger" ng-if="productDetailData.showPickUpInStore" ng-bind="productDetailData.pickUpInStore"></button>
+    <button type="button" class="btn btn-danger" ng-if="productDetailData.showAddToCart" ng-bind="productDetailData.addToCart"></button>
+</div>
+<div class="product-returns">
+    <span ng-bind="productDetailData.returns" class="product-return"></span>
+    <span ng-bind="productDetailData.returnsDescription" class="product-return-description"></span>
+</div>
+<div class="product-user-actions">
+    <button type="button" class="btn btn-default btn-sm" ng-bind="productDetailData.addToRegistry"></button>
+    <button type="button" class="btn btn-default btn-sm" ng-bind="productDetailData.addToRegistry"></button>
+    <button type="button" class="btn btn-default btn-sm" ng-bind="productDetailData.addToRegistry"></button>
+</div>
+<div id="productDescription">
+    <div class="product-highlights" ng-bind="productDetailData.productHighlighs"></div>
+    <ul ng-repeat="productDescription in productDetailData.productDescriptions track by $index">
+        <li ng-bind-html="productDescription"></li>
+    </ul>
+</div>

@@ -13,7 +13,6 @@
     </button>
     <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
         <li ng-repeat="productQuantity in productDetailData.productQuanties">
-            <!--<a ng-click="onSelect()($event, productQuantity)">{{productQuantity}}</a>-->
             <a ng-click="setQuantity($event, productQuantity)">{{productQuantity}}</a>
         </li>
     </ul>

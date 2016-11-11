@@ -11,7 +11,7 @@ class dataService {
     constructor(AppConstants) {
         "ngInject";
         this._AppConstants = AppConstants;
-        this.itemCatalogEntryData = itemData.CatalogEntryView[0]; //Will be calling http service in real world to fetch this data.
+        this.itemCatalogEntryData = itemData.CatalogEntryView[0]; //Will be calling http service or in real world to fetch this data.
     }
     /**
      * Retrieves the product title to be shown in the front end.

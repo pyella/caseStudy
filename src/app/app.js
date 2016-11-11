@@ -10,13 +10,5 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const MODULE = "app";
 
-let app = () => {
-  return {
-    template: require('./app.html'),
-    controller: 'AppCtrl',
-    controllerAs: 'app'
-  };
-};
-
 angular.module(MODULE, [uiBootStrap, ngSanitize, appConstants, appController, appDirective, appService]);
 export default MODULE;
